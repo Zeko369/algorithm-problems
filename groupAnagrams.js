@@ -29,37 +29,15 @@ const groupAnagramWords = (arr) => {
       )
       .sort();
 
-    console.log(sorted);
-
-    let tmp = [];
-    sorted.forEach((item) => {
-      if (tmp.length === 0) {
-        tmp.push(item);
+    let tmp = [sorted[0]];
+    for(let i = 1; i < sorted.length; i++) {
+      if(sorted[i] === tmp[0]) {
+        tmp.push(sorted[i]);
       } else {
-        if (tmp[tmp.length - 1] === item) {
-          tmp.push(item);
-        } else {
-          out.push(tmp);
-          tmp = [];
-        }
+        out.push(tmp)
+        tmp = [sorted[i]];
       }
-    });
-
-    out.push(tmp);
-
-    // for (let i = 0; i < sorted.length; i++) {
-    //   if (tmp.length === 0) {
-    //     tmp.push(sorted[i]);
-    //     continue;
-    //   }
-
-    //   if (tmp[tmp.length - 1] === sorted[i]) {
-    //     tmp.push(sorted[i]);
-    //   } else {
-    //     out.push(tmp);
-    //     tmp = [];
-    //   }
-    // }
+    }
 
     out.push(tmp);
   });
