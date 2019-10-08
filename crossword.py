@@ -8,7 +8,6 @@ word = 'FOAM'
 beginnings = []
 
 for i in range(len(arr)):
-    for j in range(len(arr)):
-        if arr[i][j] == word[0]:
-            beginnings.append([i, j])
-
+  for j in range(len(arr)):
+    if arr[i][j] == word[0]:
+      beginnings.append([i, j])
